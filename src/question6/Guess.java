@@ -12,36 +12,30 @@ public class Guess {
 	public int guessGame(){
 		int k = this.range.guess();
 		Scanner scanner= new Scanner(System.in);
-		char c = play(k, scanner);
-		return guessGame(k, c, scanner);
+		String s = play(k, scanner);
+		return guessGame(k, s, scanner);
 	}
 	
-	private int guessGame(int k, char c, Scanner scanner){
-		if(c == 'H'){
+	private int guessGame(int k, String s, Scanner scanner){
+		if(s.equals("higher")){
 			this.range.setLow(k);
 			k = this.range.guess();
-			c = play(k, scanner);
-			return guessGame(k, c, scanner);
-		}if(c == 'L'){
+			s = play(k, scanner);
+			return guessGame(k, s, scanner);
+		}if(s.equals("lower")){
 			this.range.setHigh(k);
 			k = this.range.guess();
-			c = play(k, scanner);
-			return guessGame(k, c, scanner);
+			s = play(k, scanner);
+			return guessGame(k, s, scanner);
 		}else{
 			return k;
 		}
 	}
 	
-	public static char play(int k, Scanner scanner){
+	public static String play(int k, Scanner scanner){
 		System.out.println("Is it " + k + "?");
 		String s = scanner.next();
-			if(s.equals("higher")){
-				return 'H';
-			}else if(s.equals("lower")){
-				return 'L';
-			}else{
-				return 'Y';
-			}
+		return s;
 	}
 	
 	public static void main (String[] args){
