@@ -58,6 +58,7 @@ public class Read extends Thread{
 			s.append("\n\n");
 			equationList.add(s.toString());
 		}
+		notify();
 	}
 	
 	public synchronized void writeOut() throws Exception{
