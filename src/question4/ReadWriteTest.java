@@ -1,5 +1,6 @@
 package question4;
 
+
 public class ReadWriteTest {
 	
 	public static void main(String[] args) throws InterruptedException {
